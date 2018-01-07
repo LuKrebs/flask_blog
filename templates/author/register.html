@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Author Register{% endblock %}
+
+{% block content %}
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--2-offset-tablet mdl-cell--4-col-desktop mdl-cell--4-offset-desktop">
+      <h1>Author Registration</h1>
+
+      {% from "_formhelpers.html" import render_field %}
+          <form class="" action="{{ url_for('register') }}" method="post">
+
+              {{ form.hidden_tag() }}
+
+              {{ render_field(form.fullname) }}
+              {{ render_field(form.email) }}
+              {{ render_field(form.username) }}
+              {{ render_field(form.password) }}
+              {{ render_field(form.confirm) }}
+
+              <br>
+
+              <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                  Register
+              </button>
+          </form>
+  </div>
+</div>
+{% endblock %}

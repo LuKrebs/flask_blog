@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}User Login{% endblock %}
+
+{% block content %}
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--4-col-tablet mdl-cell--2-offset-tablet mdl-cell--4-col-desktop mdl-cell--4-offset-desktop">
+
+        <h3>User Login</h3>
+
+        {% if error %}
+            <div class="error">
+                {{ error }}
+            </div>
+        {% endif %}
+
+        {% from "_formhelpers.html" import render_field %}
+        <form  action="{{ url_for('login') }}" method="post">
+            {{ form.hidden_tag() }}
+
+            {{ render_field(form.username) }}
+            {{ render_field(form.password) }}
+
+            <br>
+
+            <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                LOGIN
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
